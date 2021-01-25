@@ -1,8 +1,8 @@
-import logo from "./logo.svg";
-import MyComponent from "./MyComponent";
+import React from "react";
+import Counter from "./Counter";
 
-function App() {
-    return <MyComponent name='React' favoriteNumber={1} >리액트</MyComponent>;
-}
+const App = () => {
+    return <Counter />;
+};
 
 export default App;
