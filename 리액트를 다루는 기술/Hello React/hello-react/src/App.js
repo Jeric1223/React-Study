@@ -1,8 +1,8 @@
 import React from "react";
-import ValidationSample from "./ValidationSample";
+import Info from "./Hooks/Info";
 
 const App = () => {
-  return <ValidationSample />;
+  return <Info />;
 };
 
 export default App;
