@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Info = () => {
   const [name, setName] = useState("");
@@ -11,6 +11,11 @@ const Info = () => {
   const onChangeNickname = (e) => {
     setNickname(e.target.value);
   };
+
+  useEffect(() =>{
+    console.lof(name);
+  }, [name]);
+
 
   return (
     <div>
