@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-const MainURL = "http://15.164.102.79c:8080";
+const MainURL = "	https://kapi.kakao.com";
 
 export function request(method, url, header, data) {
   return Axios({
