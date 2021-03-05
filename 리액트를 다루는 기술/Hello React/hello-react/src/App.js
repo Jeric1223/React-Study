@@ -1,8 +1,8 @@
 import React from "react";
-import Counter from "./API TEST/ApiTest";
+import MovieAPI from "./API TEST/MovieApi";
 
 const App = () => {
-  return <Counter />;
+  return <MovieAPI />;
 };
 
 export default App;
