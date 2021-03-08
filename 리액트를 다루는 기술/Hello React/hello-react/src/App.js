@@ -1,8 +1,8 @@
 import React from "react";
-import MovieAPI from "./API TEST/MovieApi";
+import Average from "./Hooks/Average";
 
 const App = () => {
-  return <MovieAPI />;
+  return <Average />;
 };
 
 export default App;
