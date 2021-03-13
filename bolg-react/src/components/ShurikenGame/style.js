@@ -1,6 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import BlogTilteImg from "../../assets/Coding-Blo.png";
-import BlogClickTitleG from "../../assets/g.png";
 import asas from "../../assets/Throwing_Stars.png";
 
 export const test = keyframes`
@@ -16,8 +14,7 @@ export const test = keyframes`
   }
 `;
 
-
-export const HeaderWrapper = styled.div`
+export const MainWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
@@ -28,13 +25,16 @@ export const HeaderWrapper = styled.div`
     width: 200px;
     height: 50px;
     border-radius: 20px;
+    &:focus {
+      outline: none;
+    }
   }
   .asas {
     width: 30%;
     height: 30%;
     background-image: url(${asas});
     background-repeat: no-repeat;
-    animation:${test} 2s infinite;
+    animation: ${test} 2s;
     margin-bottom: 50px;
   }
 `;

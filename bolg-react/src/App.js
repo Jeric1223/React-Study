@@ -1,10 +1,10 @@
 import React from "react";
-import BlogMainPage from "./components/BlogPage/MainPage/BlogMainPage";
+import ShurikenGame from "./components/ShurikenGame/ShurikenGame";
 
 const App = () => {
   return (
     <>
-      <BlogMainPage />
+      <ShurikenGame />
     </>
   );
 };
