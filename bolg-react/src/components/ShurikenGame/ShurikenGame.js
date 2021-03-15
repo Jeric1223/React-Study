@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 import { findAllByDisplayValue } from "@testing-library/dom";
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
@@ -9,9 +10,6 @@ const ShurikenGame = () => {
   );
   const [shurikenLevel, setShurikenLevel] = useState(
     () => JSON.parse(window.localStorage.getItem("shurikenLevel")) || 0
-  );
-  const [speed, setSpeed] = useState(
-    () => JSON.parse(window.localStorage.getItem("speed")) || 5
   );
 
   const onClick = (e) => {
@@ -30,8 +28,7 @@ const ShurikenGame = () => {
   useEffect(() => {
     window.localStorage.setItem("money", JSON.stringify(money));
     window.localStorage.setItem("shurikenLevel", JSON.stringify(shurikenLevel));
-    window.localStorage.setItem("speed", JSON.stringify(speed));
-  }, [money, shurikenLevel, speed]);
+  }, [money, shurikenLevel]);
 
   return (
     <S.MainWrapper>
@@ -40,13 +37,7 @@ const ShurikenGame = () => {
         <p>Shuriken Level : {shurikenLevel}</p>
         <p>money : {money}$</p>
       </S.levelAndMoneyBox>
-      <S.shuriken
-        style={
-          animation
-            ? { animationName: "test", animationDelay: `${speed}s` }
-            : {}
-        }
-      />
+      <S.shuriken style={animation ? { animationName: "test" } : {}} />
       <S.buttonContainer>
         <button
           onClick={onClick}
@@ -64,8 +55,7 @@ const ShurikenGame = () => {
           <div>Upgrade</div>
           <p>
             표창을 업그레이드 합니다. 표창을 업그레이드 하면 돈이{" "}
-            {shurikenLevel * 2}$로 올라가고 스피드가 {shurikenLevel * 0.2}초
-            정도 상승합니다.
+            {shurikenLevel * 2}$로 올라갑니다.
           </p>
           <h2>비용 : {shurikenLevel * 10}$</h2>
           <button
