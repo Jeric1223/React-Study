@@ -70,3 +70,51 @@ export const shuriken = styled.div`
   margin-bottom: 100px;
   margin-left: 73px;
 `;
+
+export const upgradeWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const upgradeContainer = styled.div`
+  position: absolute;
+  width: 500px;
+  height: 450px;
+  background-color: #0bbf8c;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 0%; //-37%
+  div {
+    width: 92%;
+    padding: 24px;
+    font-size: 54px;
+    font-family: "AppleSDGothicNeoEB00";
+    border-bottom: solid 2px black;
+    margin-bottom: 10.5px;
+    text-align: center;
+    cursor: pointer;
+  }
+  p {
+    width: 520px;
+    font-size: 24px;
+    font-family: "AppleSDGothicNeoEB00";
+    text-align: center;
+    padding-top: 12px;
+  }
+  h2 {
+    font-family: "AppleSDGothicNeoEB00";
+    font-size: 44px;
+    margin-top: 70px;
+  }
+  button {
+    width: 80%;
+    height: 85px;
+    margin-top: 25px;
+    cursor: pointer;
+    font-size: 34px;
+    font-family: "AppleSDGothicNeoEB00";
+  }
+`;
