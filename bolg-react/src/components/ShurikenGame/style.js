@@ -27,23 +27,7 @@ export const MainWrapper = styled.div`
     font-size: 75px;
     font-family: "AppleSDGothicNeoEB00";
     margin: 55px 0 0 73px;
-    color: #0FF2B2;
-  }
-  .levelAndMoneyBox{
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-right: 75px;
-    margin-bottom: 42px;
-    font-size: 44px;
-    color: #0FF2B2;
-    font-family: AppleSDGothicNeoEB00;
-  }
-  .buttonContainer{
-    width: 100%;
-    display:flex;
-    justify-content: center;
+    color: #0ff2b2;
   }
   button {
     width: 500px;
@@ -56,14 +40,33 @@ export const MainWrapper = styled.div`
       outline: none;
     }
   }
-  .shuriken {
-    width: 30%;
-    height: 30%;
-    background-image: url(${Shuriken2Level});
-    background-repeat: no-repeat;
-    background-size: 38%;
-    animation: ${test} 2s;
-    margin-bottom: 100px;
-    margin-left: 73px;
-  }
+`;
+
+export const buttonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+export const levelAndMoneyBox = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 75px;
+  margin-bottom: 42px;
+  font-size: 44px;
+  color: #0ff2b2;
+  font-family: AppleSDGothicNeoEB00;
+`;
+
+export const shuriken = styled.div`
+  width: 30%;
+  height: 30%;
+  background-image: url(${Shuriken2Level});
+  background-repeat: no-repeat;
+  background-size: 38%;
+  animation: ${test} 2s;
+  margin-bottom: 100px;
+  margin-left: 73px;
 `;

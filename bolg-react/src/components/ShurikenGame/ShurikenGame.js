@@ -15,7 +15,6 @@ const ShurikenGame = () => {
     if (animation === true) {
       setAnimation(false);
       setMoney(money + 1);
-      setShurikenLevel(shurikenLevel + 1);
       const buttonInterval = setInterval(() => {
         setAnimation(true);
       }, 2000);
@@ -33,15 +32,12 @@ const ShurikenGame = () => {
   return (
     <S.MainWrapper>
       <h1>ShurikenGame</h1>
-      <div className="levelAndMoneyBox">
+      <S.levelAndMoneyBox>
         <p>Shuriken Level : {shurikenLevel}</p>
         <p>money : {money}$</p>
-      </div>
-      <div
-        className="shuriken"
-        style={animation ? { animationName: "test" } : {}}
-      ></div>
-      <div className="buttonContainer">
+      </S.levelAndMoneyBox>
+      <S.shuriken style={animation ? { animationName: "test" } : {}} />
+      <S.buttonContainer>
         <button
           onClick={onClick}
           style={
@@ -52,7 +48,7 @@ const ShurikenGame = () => {
         >
           {animation === true ? "Throw" : "Returning..."}
         </button>
-      </div>
+      </S.buttonContainer>
     </S.MainWrapper>
   );
 };
