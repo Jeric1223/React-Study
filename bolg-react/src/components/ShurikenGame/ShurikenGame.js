@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-pascal-case */
-import { findAllByDisplayValue } from "@testing-library/dom";
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
 
@@ -15,7 +13,7 @@ const ShurikenGame = () => {
   const onClick = (e) => {
     if (animation === true) {
       setAnimation(false);
-      setMoney(money + 1);
+      setMoney(money + shurikenLevel*2);
       const buttonInterval = setInterval(() => {
         setAnimation(true);
       }, 2000);
@@ -23,6 +21,12 @@ const ShurikenGame = () => {
         clearTimeout(buttonInterval);
       }, 2001);
     }
+  };
+
+  const levelUp = () => {
+    setShurikenLevel(shurikenLevel + 1);
+    setMoney(money - shurikenLevel * 26);
+    console.log("도착함");
   };
 
   useEffect(() => {
@@ -55,17 +59,18 @@ const ShurikenGame = () => {
           <div>Upgrade</div>
           <p>
             표창을 업그레이드 합니다. 표창을 업그레이드 하면 돈이{" "}
-            {shurikenLevel * 2}$로 올라갑니다.
+            {shurikenLevel * 2 + 2}$로 올라갑니다.
           </p>
-          <h2>비용 : {shurikenLevel * 10}$</h2>
+          <h2>비용 : {shurikenLevel * 26}$</h2>
           <button
+            onClick={money >= shurikenLevel * 26 ? levelUp : {}}
             style={
-              money >= shurikenLevel * 10
+              money >= shurikenLevel * 26
                 ? { background: "#0FF2B2", color: "#161C40" }
                 : { background: "#161C40", color: "#0FF2B2" }
             }
           >
-            {money >= shurikenLevel * 10 ? "업그레이드" : "돈이 부족합니다"}
+            {money >= shurikenLevel * 26 ? "업그레이드" : "돈이 부족합니다"}
           </button>
         </S.upgradeContainer>
       </S.upgradeWrapper>
