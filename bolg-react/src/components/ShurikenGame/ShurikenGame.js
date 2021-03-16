@@ -9,7 +9,7 @@ const ShurikenGame = () => {
     () => JSON.parse(window.localStorage.getItem("money")) || 0
   );
   const [shurikenLevel, setShurikenLevel] = useState(
-    () => JSON.parse(window.localStorage.getItem("shurikenLevel")) || 0
+    () => JSON.parse(window.localStorage.getItem("shurikenLevel")) || 1
   );
 
   const onClick = (e) => {

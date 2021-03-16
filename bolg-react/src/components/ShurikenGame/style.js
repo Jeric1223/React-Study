@@ -116,5 +116,6 @@ export const upgradeContainer = styled.div`
     cursor: pointer;
     font-size: 34px;
     font-family: "AppleSDGothicNeoEB00";
+    transition: 2s;
   }
 `;
