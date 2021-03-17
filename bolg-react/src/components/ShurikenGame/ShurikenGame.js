@@ -9,30 +9,35 @@ const ShurikenGame = () => {
   const [shurikenLevel, setShurikenLevel] = useState(
     () => JSON.parse(window.localStorage.getItem("shurikenLevel")) || 1
   );
+  const [shurikenSpeed, setShurikenSpeed] = useState(
+    () => JSON.parse(window.localStorage.getItem("shurikenSpeed")) || 4
+  );
 
   const onClick = (e) => {
     if (animation === true) {
       setAnimation(false);
-      setMoney(money + shurikenLevel*2);
+      setMoney(money + shurikenLevel * 2);
       const buttonInterval = setInterval(() => {
         setAnimation(true);
-      }, 2000);
+      }, shurikenSpeed * 1000);
       setTimeout(function () {
         clearTimeout(buttonInterval);
-      }, 2001);
+      }, shurikenSpeed * 1000);
     }
   };
 
   const levelUp = () => {
     setShurikenLevel(shurikenLevel + 1);
-    setMoney(money - shurikenLevel * 26);
+    setMoney(money - shurikenLevel * 20);
+    setShurikenSpeed(shurikenSpeed - 0.25);
     console.log("도착함");
   };
 
   useEffect(() => {
     window.localStorage.setItem("money", JSON.stringify(money));
     window.localStorage.setItem("shurikenLevel", JSON.stringify(shurikenLevel));
-  }, [money, shurikenLevel]);
+    window.localStorage.setItem("shurikenSpeed", JSON.stringify(shurikenSpeed));
+  }, [money, shurikenLevel, shurikenSpeed]);
 
   return (
     <S.MainWrapper>
@@ -41,8 +46,12 @@ const ShurikenGame = () => {
         <p>Shuriken Level : {shurikenLevel}</p>
         <p>money : {money}$</p>
       </S.levelAndMoneyBox>
-      <S.shuriken style={animation ? { animationName: "test" } : {}} />
-      <S.buttonContainer>
+      <S.Shuriken
+        style={animation ? { animationName: "test" } : {}}
+        shuriken
+        shurikenSpeed={shurikenSpeed}
+      />
+      <S.ButtonContainer>
         <button
           onClick={onClick}
           style={
@@ -53,27 +62,27 @@ const ShurikenGame = () => {
         >
           {animation === true ? "Throw" : "Returning..."}
         </button>
-      </S.buttonContainer>
-      <S.upgradeWrapper>
-        <S.upgradeContainer>
+      </S.ButtonContainer>
+      <S.UpgradeWrapper>
+        <S.UpgradeContainer>
           <div>Upgrade</div>
           <p>
             표창을 업그레이드 합니다. 표창을 업그레이드 하면 돈이{" "}
             {shurikenLevel * 2 + 2}$로 올라갑니다.
           </p>
-          <h2>비용 : {shurikenLevel * 26}$</h2>
+          <h2>비용 : {shurikenLevel * 20}$</h2>
           <button
-            onClick={money >= shurikenLevel * 26 ? levelUp : {}}
+            onClick={money >= shurikenLevel * 20 ? levelUp : {}}
             style={
-              money >= shurikenLevel * 26
+              money >= shurikenLevel * 20
                 ? { background: "#0FF2B2", color: "#161C40" }
                 : { background: "#161C40", color: "#0FF2B2" }
             }
           >
-            {money >= shurikenLevel * 26 ? "업그레이드" : "돈이 부족합니다"}
+            {money >= shurikenLevel * 20 ? "업그레이드" : "돈이 부족합니다"}
           </button>
-        </S.upgradeContainer>
-      </S.upgradeWrapper>
+        </S.UpgradeContainer>
+      </S.UpgradeWrapper>
     </S.MainWrapper>
   );
 };

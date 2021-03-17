@@ -1,8 +1,8 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import Shuriken1Level from "../../assets/Shuriken1Level.png";
 import Shuriken2Level from "../../assets/Shuriken2Level.png";
 
-export const test = keyframes`
+export const shurikenMoving = keyframes`
   0% {
     margin-left: 0px;
   }
@@ -42,7 +42,7 @@ export const MainWrapper = styled.div`
   }
 `;
 
-export const buttonContainer = styled.div`
+export const ButtonContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -60,24 +60,28 @@ export const levelAndMoneyBox = styled.div`
   font-family: AppleSDGothicNeoEB00;
 `;
 
-export const shuriken = styled.div`
+export const Shuriken = styled.div`
   width: 30%;
   height: 30%;
   background-image: url(${Shuriken2Level});
   background-repeat: no-repeat;
   background-size: 38%;
-  animation: ${test} 2s;
   margin-bottom: 100px;
   margin-left: 73px;
+  ${(props) =>
+    props.shuriken &&
+    css`
+      animation: ${shurikenMoving} ${props.shurikenSpeed}s;
+    `}
 `;
 
-export const upgradeWrapper = styled.div`
+export const UpgradeWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
 `;
 
-export const upgradeContainer = styled.div`
+export const UpgradeContainer = styled.div`
   position: absolute;
   width: 500px;
   height: 450px;
