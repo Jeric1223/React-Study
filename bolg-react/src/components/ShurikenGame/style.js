@@ -48,7 +48,7 @@ export const ButtonContainer = styled.div`
   justify-content: center;
 `;
 
-export const levelAndMoneyBox = styled.div`
+export const LevelAndMoneyBox = styled.div`
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -90,9 +90,17 @@ export const UpgradeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  bottom: 0%; //-37%
+  transition: 1.5s;
+  ${(props) =>
+    props.showBox
+      ? css`
+          bottom: 0%;
+        `
+      : css`
+          bottom: -37%;
+        `};
   div {
-    width: 92%;
+    width: 91%;
     padding: 24px;
     font-size: 54px;
     font-family: "AppleSDGothicNeoEB00";
@@ -106,7 +114,7 @@ export const UpgradeContainer = styled.div`
     font-size: 24px;
     font-family: "AppleSDGothicNeoEB00";
     text-align: center;
-    padding-top: 12px;
+    padding: 12px;
   }
   h2 {
     font-family: "AppleSDGothicNeoEB00";
