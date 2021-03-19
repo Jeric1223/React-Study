@@ -11,7 +11,7 @@ const ShurikenGame = () => {
     () => JSON.parse(window.localStorage.getItem("shurikenLevel")) || 1
   );
   const [shurikenSpeed, setShurikenSpeed] = useState(
-    () => JSON.parse(window.localStorage.getItem("shurikenSpeed")) || 4
+    () => JSON.parse(window.localStorage.getItem("shurikenSpeed")) || 5
   );
 
   const onClick = () => {
@@ -29,9 +29,8 @@ const ShurikenGame = () => {
 
   const levelUp = () => {
     setShurikenLevel(shurikenLevel + 1);
-    setMoney(money - shurikenLevel * 20);
-    setShurikenSpeed(shurikenSpeed - 0.25);
-    console.log("도착함");
+    setMoney(money - shurikenLevel * 2 * 10);
+    setShurikenSpeed(shurikenSpeed * 0.85);
   };
 
   const ButtonToggle = () => {
@@ -76,16 +75,16 @@ const ShurikenGame = () => {
             표창을 업그레이드 합니다. 표창을 업그레이드 하면 돈이{" "}
             {shurikenLevel * 2 + 2}$로 올라갑니다. 스피드도 0.25s 상승합니다.
           </p>
-          <h2>비용 : {shurikenLevel * 20}$</h2>
+          <h2>비용 : {shurikenLevel * 2 * 10}$</h2>
           <button
-            onClick={money >= shurikenLevel * 20 ? levelUp : {}}
+            onClick={money >= shurikenLevel * 2 * 10 ? levelUp : {}}
             style={
-              money >= shurikenLevel * 20
+              money >= shurikenLevel * 2 * 10
                 ? { background: "#0FF2B2", color: "#161C40" }
                 : { background: "#161C40", color: "#0FF2B2" }
             }
           >
-            {money >= shurikenLevel * 20 ? "업그레이드" : "돈이 부족합니다"}
+            {money >= shurikenLevel * 2 * 10 ? "업그레이드" : "돈이 부족합니다"}
           </button>
         </S.UpgradeContainer>
       </S.UpgradeWrapper>
