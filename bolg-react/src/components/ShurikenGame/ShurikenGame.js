@@ -52,13 +52,13 @@ const ShurikenGame = () => {
         <p>Shuriken Level : {shurikenLevel}</p>
         <p>money : {money}$</p>
       </S.LevelAndMoneyBox>
-      <S.Shuriken
+      <S.Shuriken /* 수리검 이미지와 애니메이션 */
         style={animation ? { animationName: "test" } : {}}
         shuriken
         shurikenSpeed={shurikenSpeed}
       />
       <S.ButtonContainer>
-        <button
+        <button /* 버튼 스타일 */
           onClick={onClick}
           style={
             animation === false
@@ -74,8 +74,7 @@ const ShurikenGame = () => {
           <div onClick={ButtonToggle}>Upgrade</div>
           <p>
             표창을 업그레이드 합니다. 표창을 업그레이드 하면 돈이{" "}
-            {shurikenLevel * 2 + 2}$로 올라갑니다. 스피드도{" "}
-            {shurikenSpeed - 0.25}상승합니다.
+            {shurikenLevel * 2 + 2}$로 올라갑니다. 스피드도 0.25s 상승합니다.
           </p>
           <h2>비용 : {shurikenLevel * 20}$</h2>
           <button
