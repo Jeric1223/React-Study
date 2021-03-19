@@ -46,6 +46,9 @@ export const ButtonContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  button{
+    cursor: pointer;
+  }
 `;
 
 export const LevelAndMoneyBox = styled.div`
