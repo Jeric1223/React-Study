@@ -26,7 +26,9 @@ const ShurikenGame = () => {
       }, shurikenSpeed * 1000);
     }
   };
-
+  //레벨업에 따른 스팩 업 
+  //돈 올라가는 공식 = 돈 - 레벨 *2 *10
+  //스피드가 줄어드는 공식 = 스피드 * 0.85 (완벽하지는 않음)
   const levelUp = () => {
     setShurikenLevel(shurikenLevel + 1);
     setMoney(money - shurikenLevel * 2 * 10);
