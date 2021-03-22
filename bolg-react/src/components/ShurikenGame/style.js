@@ -97,7 +97,7 @@ export const UpgradeContainer = styled.div`
   ${(props) =>
     props.showBox
       ? css`
-          bottom: -3%;
+          bottom: -2%;
         `
       : css`
           bottom: -37%;
