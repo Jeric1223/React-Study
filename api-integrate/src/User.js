@@ -1,46 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import useAsync from "./useAsync";
+import User from "./User";
 
-function User() {
-  const [users, setUsers] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+// useAsync 에서는 Promise 의 결과를 바로 data 에 담기 때문에,
+// 요청을 한 이후 response 에서 data 추출하여 반환하는 함수를 따로 만들었습니다.
+async function getUsers() {
+  const response = await axios.get(
+    "https://jsonplaceholder.typicode.com/users"
+  );
+  return response.data;
+}
 
-  const fetchUsers = async () => {
-    try {
-      setError(null);
-      setUsers(null);
-      setLoading(true);
-      const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/users"
-      );
-      setUsers(response.data);
-    } catch (e) {
-      setError(e);
-    }
-    setLoading(false);
-  };
+function Users() {
+  const [userId, setUserId] = useState(null);
+  const [state, refetch] = useAsync(getUsers, [], true);
 
-  useEffect(() => {
-    fetchUsers();
-  }, []);
+  const { loading, data: users, error } = state; // state.data 를 users 키워드로 조회
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>에러가 발생했습니다.</div>;
-  if (!users) return null;
-
+  if (loading) return <div>로딩중..</div>;
+  if (error) return <div>에러가 발생했습니다</div>;
+  if (!users) return <button onClick={refetch}>불러오기</button>;
   return (
-    <div>
+    <>
       <ul>
-        {users.map((users) => (
-          <li key={users.id}>
-            <p>{users.username}(user.name)</p>
+        {users.map((user) => (
+          <li
+            key={user.id}
+            onClick={() => setUserId(user.id)}
+            style={{ cursor: "pointer" }}
+          >
+            {user.username} ({user.name})
           </li>
         ))}
       </ul>
-      <button onClick={fetchUsers}>다시 불러오기</button>
-    </div>
+      <button onClick={refetch}>다시 불러오기</button>
+      {userId && <User id={userId} />}
+    </>
   );
 }
-export default User;
+
+export default Users;
