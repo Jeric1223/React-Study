@@ -1,33 +1,28 @@
 import React from "react";
+import { Link, Route } from "react-router-dom";
+import Profile from "./Profile";
 
-// 프로필에서 사용 할 데이터
-const profileData = {
-  velopert: {
-    name: "김민준",
-    description:
-      "Frontend Engineer @ Laftel Inc. 재밌는 것만 골라서 하는 개발자",
-  },
-  gildong: {
-    name: "홍길동",
-    description: "전래동화의 주인공",
-  },
-};
-
-const Profile = ({ match }) => {
-  // 파라미터를 받아올 땐 match 안에 들어있는 params 값을 참조합니다.
-  const { username } = match.params;
-  const profile = profileData[username];
-  if (!profile) {
-    return <div>존재하지 않는 유저입니다.</div>;
-  }
+const Profiles = () => {
   return (
     <div>
-      <h3>
-        {username}({profile.name})
-      </h3>
-      <p>{profile.description}</p>
+      <h3>유저 목록:</h3>
+      <ul>
+        <li>
+          <Link to="/profiles/velopert">velopert</Link>
+        </li>
+        <li>
+          <Link to="/profiles/gildong">gildong</Link>
+        </li>
+      </ul>
+
+      <Route
+        path="/profiles"
+        exact
+        render={() => <div>유저를 선택해주세요.</div>}
+      />
+      <Route path="/profiles/:username" component={Profile} />
     </div>
   );
 };
 
-export default Profile;
+export default Profiles;
