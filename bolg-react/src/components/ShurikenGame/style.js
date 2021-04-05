@@ -2,6 +2,10 @@ import styled, { keyframes, css } from "styled-components";
 import Shuriken1Level from "../../assets/Shuriken1Level.png";
 import Shuriken2Level from "../../assets/Shuriken2Level.png";
 
+const BREAK_POINT_MOBILE = 768;
+const BREAK_POINT_TABLET = 992;
+const BREAK_POINT_PC = 1200;
+
 export const shurikenMoving = keyframes`
   0% {
     margin-left: 0px;
@@ -46,7 +50,7 @@ export const ButtonContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  button{
+  button {
     cursor: pointer;
   }
 `;
@@ -86,8 +90,11 @@ export const UpgradeWrapper = styled.div`
 
 export const UpgradeContainer = styled.div`
   position: absolute;
-  width: 500px;
-  height: 450px;
+  /* width: 500px;
+  height: 450px;*/
+  width: 26%;
+  height: 48%;
+  min-width: 500px;
   background-color: #0bbf8c;
   border-radius: 40px;
   display: flex;
@@ -105,7 +112,7 @@ export const UpgradeContainer = styled.div`
   div {
     width: 91%;
     padding: 24px;
-    font-size: 54px;
+    font-size: 2.5rem;
     font-family: "AppleSDGothicNeoEB00";
     border-bottom: solid 2px black;
     margin-bottom: 10.5px;
@@ -114,10 +121,10 @@ export const UpgradeContainer = styled.div`
   }
   p {
     width: 520px;
-    font-size: 24px;
+    font-size: 1.2rem;
     font-family: "AppleSDGothicNeoEB00";
     text-align: center;
-    padding: 12px;
+    padding: 15px;
   }
   h2 {
     font-family: "AppleSDGothicNeoEB00";
@@ -132,5 +139,10 @@ export const UpgradeContainer = styled.div`
     font-size: 34px;
     font-family: "AppleSDGothicNeoEB00";
     transition: 2s;
+  }
+  @media only screen and (max-width: ${BREAK_POINT_PC}px) {
+    & {
+      background-color: red;
+    }
   }
 `;

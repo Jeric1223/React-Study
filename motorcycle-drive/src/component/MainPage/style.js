@@ -38,7 +38,7 @@ export const MovingBackground = styled.div`
   width: 100%;
   height: 500px;
   background: url(${backgroundImg}) 0 center / 1500px repeat-x;
-  animation: ${movebg} 4s linear infinite;
+  animation: ${movebg} 5s linear infinite;
 `;
 
 export const Bike = styled.div`
