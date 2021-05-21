@@ -86,6 +86,7 @@ const ShurikenGame = () => {
                 ? { background: "#0FF2B2", color: "#161C40" }
                 : { background: "#161C40", color: "#0FF2B2" }
             }
+            name={money >= shurikenLevel * 2 * 10 ? "upGrade" : "needMoney"}
           >
             {money >= shurikenLevel * 2 * 10 ? "업그레이드" : "돈이 부족합니다"}
           </button>
