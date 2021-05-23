@@ -15,7 +15,11 @@ money_botton = driver.find_element_by_css_selector(
     '#root > div > div.sc-gsTCUz.hsmfDZ > button')
 
 
+<<<<<<< HEAD
 upgrade_button = driver.find_element_by_name( """ 오류가 좀있음 """
+=======
+upgrade_button = driver.find_element_by_name(
+>>>>>>> 3d6a7f68ad93fe4b0b7fd340a743c57fa6dfd31d
     '#root > div > div.sc-eCssSg.lculzP > div > button')
 while True:
     if upgrade_button.ByNAME == 'upGrade':
