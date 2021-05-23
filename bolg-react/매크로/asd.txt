@@ -1,0 +1,57 @@
+from os import name
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from time import sleep
+
+name = '김재현'
+birth = '041223'
+
+options = webdriver.ChromeOptions()
+options.add_argument('window-size=1920,1080')
+
+driver = webdriver.Chrome('chromedriver', options=options)
+driver.implicitly_wait(1)
+
+
+driver.get(url='https://hcs.eduro.go.kr/#/loginHome')
+start_button = driver.find_element_by_css_selector('#btnConfirm2')
+start_button.click()
+
+school_input = driver.find_element_by_css_selector('#schul_name_input')
+school_input.click()
+city_select = driver.find_element_by_css_selector('#sidolabel')
+city_select.click()
+city_select_child = driver.find_element_by_css_selector(
+    '#sidolabel > option:nth-child(7)')
+city_select_child.click()
+school_level_select = driver.find_element_by_css_selector('#crseScCode')
+school_level_select.click()
+school_level = driver.find_element_by_css_selector(
+    '#crseScCode > option:nth-child(5)')
+school_level.click()
+search_school = driver.find_element_by_css_selector('#orgname')
+search_school.send_keys('대덕소프트웨어마이스터고등학교')
+search_school.send_keys(Keys.RETURN)
+choose_school = driver.find_element_by_css_selector(
+    '#softBoardListLayer > div.layerContentsWrap > div.layerSchoolSelectWrap > ul > li > a > p > a')
+choose_school.click()
+submit_button = driver.find_element_by_css_selector(
+    '#softBoardListLayer > div.layerContentsWrap > div.layerBtnWrap > input')
+submit_button.click()
+name_input = driver.find_element_by_css_selector('#user_name_input')
+name_input.send_keys(name)
+birth_day = driver.find_element_by_css_selector('#birthday_input')
+birth_day.send_keys(birth)
+done_button = driver.find_element_by_css_selector('#btnConfirm')
+done_button.click()
+sleep(7)
+f1 = driver.find_element_by_css_selector('#survey_q1a1')
+f1.click()
+f2 = driver.find_element_by_css_selector('#survey_q2a1')
+f2.click()
+f3 = driver.find_element_by_css_selector('#survey_q3a1')
+f3.click()
+f4 = driver.find_element_by_css_selector('#btnConfirm')
+f4.click()
+driver.execute_script("alert('자가진단이 완료되었습니다')")
+sleep(3)
